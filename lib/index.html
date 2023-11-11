@@ -1,0 +1,18 @@
+<?php
+$mysqli = new mysqli("http://localhost:3306","iot","iot","iot");
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
+}
+
+// Perform query
+if ($result = $mysqli -> query("SELECT * FROM sensors")) {
+  echo "Returned rows are: " . $result -> num_rows;
+  // Free result set
+  $result -> free_result();
+}
+
+$mysqli -> close();
+?>
