@@ -63,11 +63,14 @@ export default function Header() {
       </div>
 
       <div className="w-1/3 flex justify-end">
-        <IconButton aria-label="delete" onClick={() => setMenuOpen(!menuOpen)}>
+        <IconButton
+          aria-label="delete"
+          onClick={() => alert("Not available yet")}
+        >
           <MenuRoundedIcon className="!text-6xl dark:!text-white" />
         </IconButton>
       </div>
-      <div
+      {/*<div
         className={`${
           menuOpen ? "translate-x-0" : "translate-x-full"
         } right-0 bottom-0 absolute z-50 w-1/3 h-[calc(100vh-8rem)] bg-black transition-all`}
@@ -79,7 +82,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-      </div>
+      </div>*/}
     </header>
   );
 }

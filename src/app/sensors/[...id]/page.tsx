@@ -21,7 +21,15 @@ async function loadData() {
   console.log(data);
   return data;
 }
-
+function generateRandomData(
+  min: number,
+  max: number,
+  length: number
+): number[] {
+  return Array.from({ length }, () =>
+    Math.floor(Math.random() * (max - min + 1) + min)
+  );
+}
 const labels = ["8AM", "9AM", "10AM", "11AM", "12AM", "1PM"];
 
 // Setting up the data for the chart, including the labels and datasets
@@ -32,7 +40,7 @@ const tData = {
       label: "Temperature (°C)", // Setting up the label for the dataset
       backgroundColor: "rgb(255, 99, 132)", // Setting up the background color for the dataset
       borderColor: "rgb(255, 99, 132)", // Setting up the border color for the dataset
-      data: [23, 24, 24, 27, 25, 25, 27], // Setting up the data for the dataset
+      data: generateRandomData(20, 30, labels.length), // Setting up the data for the dataset
     },
   ],
 };
@@ -43,7 +51,7 @@ const hData = {
       label: "Air Humidity (%)", // Setting up the label for the dataset
       backgroundColor: "rgb(219, 255, 99)", // Setting up the background color for the dataset
       borderColor: "rgb(219, 255, 99)", // Setting up the border color for the dataset
-      data: [80, 82, 90, 85, 81, 83, 91], // Setting up the data for the dataset
+      data: generateRandomData(20, 30, labels.length), // Setting up the data for the dataset
     },
   ],
 };
